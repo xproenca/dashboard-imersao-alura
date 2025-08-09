@@ -136,7 +136,7 @@ with col_graf3[0]:
         grafico_paises = px.choropleth(media_ds_pais,
             locations='residencia_iso3',
             color='usd',
-            color_continuous_scale='purples',
+            color_continuous_scale='reds',
             title='Salário médio de Cientista de Dados por país',
             labels={'usd': 'Salário médio (USD)', 'residencia_iso3': 'País'})
         grafico_paises.update_layout(title_x=0.5)
@@ -148,3 +148,4 @@ with col_graf3[0]:
 st.subheader("**Dados detalhados**")
 st.dataframe(df_filtrado)
     
+
