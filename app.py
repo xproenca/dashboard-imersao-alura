@@ -129,15 +129,14 @@ col_graf3 = st.columns(1)
 
 with col_graf3[0]:
     if not df_filtrado.empty:
-        #Define uma variável e seleciona apenas Data Scientist dentro do DF
-        df_ds = df_filtrado[df_filtrado['cargo'] == 'Data Scientist']
-        #Pega a média da variável criada
-        media_ds_pais = df_ds.groupby('residencia_iso3')['usd'].mean().reset_index()
+        
+        #Pega a média do salário por país
+        media_ds_pais = df_filtrado.groupby('residencia_iso3')['usd'].mean().reset_index()
         grafico_paises = px.choropleth(media_ds_pais,
             locations='residencia_iso3',
             color='usd',
             color_continuous_scale='reds',
-            title='Salário médio de Cientista de Dados por país',
+            title='Salário médio por país',
             labels={'usd': 'Salário médio (USD)', 'residencia_iso3': 'País'})
         grafico_paises.update_layout(title_x=0.5)
         st.plotly_chart(grafico_paises, use_container_width=True)
@@ -148,4 +147,5 @@ with col_graf3[0]:
 st.subheader("**Dados detalhados**")
 st.dataframe(df_filtrado)
     
+
 
