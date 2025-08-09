@@ -137,7 +137,7 @@ with col_graf3[0]:
             color='usd',
             color_continuous_scale='reds',
             title='Salário médio por país',
-            labels={'usd': 'Salário médio (USD)', 'residencia_iso3': 'País'})
+            labels={'usd': 'Salário médio', 'residencia_iso3': 'País'})
         grafico_paises.update_layout(title_x=0.5)
         st.plotly_chart(grafico_paises, use_container_width=True)
     else:
@@ -147,5 +147,6 @@ with col_graf3[0]:
 st.subheader("**Dados detalhados**")
 st.dataframe(df_filtrado)
     
+
 
 
